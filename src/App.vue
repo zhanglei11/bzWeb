@@ -15,8 +15,6 @@ import dayjs from "dayjs";
 import { useI18n } from "vue-i18n";
 import "dayjs/locale/zh-cn";
 dayjs.locale("zh-cn");
-
-
 const { locale } = useI18n();
 const locale_s = ref(locale.value == "zh" ? zhCN : enGB);
 const reload = () => {

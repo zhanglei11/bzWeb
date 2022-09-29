@@ -10,13 +10,18 @@ export default defineComponent({
       let data = computed(() => {
         return store.state.user.dictionaryInfo[type]
       })
-      console.log("data",data)
+
+      console.log('data',data)
       let name = ''
+
       for (var key in data.value) {
-        if (data.value[key].value == val) name = data.value[key].name
+        if (data.value[key].value == val) {
+          name = data.value[key].name
+        }
       }
       return name
     }
+
     return {
       getDictionary
     }

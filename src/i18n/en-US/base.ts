@@ -53,10 +53,11 @@ export default {
   用户名包含特殊字符: 'The user name contains special characters',
   用户密码错误: 'User password error',
   数据不存在: 'Data does not exist',
-  编号已存在:"Number already exists",
-  数据被引用:"Data referenced",
+  编号已存在:'Number already exists',
+  数据被引用:'Data referenced',
   物料类型等级已存在: 'Material type level already exists',
-  层列坐标已存在:"Layer column coordinates already exist",
-  不可删除:"ADMIN Cannot be deleted",
-  没有可添加的物料:"No material to add"
+  层列坐标已存在:'Layer column coordinates already exist',
+  不可删除:'ADMIN Cannot be deleted',
+  没有可添加的物料:'No material to add',
+  数据格式错误:'Data in wrong format'
 };

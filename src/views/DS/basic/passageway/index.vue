@@ -21,11 +21,11 @@
       <template v-slot:tableInfo>
         <vxe-column field="supermarketName" :title="$t('basic.所属超市')" sortable></vxe-column>
         <vxe-column field="channelNo" :title="$t('basic.通道编号')" sortable></vxe-column>
-        <vxe-column field="columnNo" :title="$t('basic.列号')" sortable></vxe-column>
         <vxe-column field="layerNo" :title="$t('basic.层号')" sortable></vxe-column>
-        <vxe-column field="channelType" :title="$t('basic.通道类型')" sortable> 
-           <template #default="{ row }">
-            {{ getDictionary("channelType",row.channelType)}}
+        <vxe-column field="columnNo" :title="$t('basic.列号')" sortable></vxe-column>
+        <vxe-column field="channelType" :title="$t('basic.通道类型')" sortable>
+          <template #default="{ row }">
+            {{ getDictionary('channelType', row.channelType) }}
           </template>
         </vxe-column>
         <vxe-column field="electronicTagIn" :title="$t('basic.IN')" sortable></vxe-column>
@@ -33,6 +33,11 @@
         <vxe-column field="tailingFlag" :title="$t('basic.尾料通道')" sortable>
           <template #default="{ row }">
             {{ row.tailingFlag == '0' ? '否' : '是' }}
+          </template>
+        </vxe-column>
+         <vxe-column field="capacity" :title="$t('basic.容量')" sortable>
+          <template #default="{ row }">
+            {{ row.capacity+row.kltName}}
           </template>
         </vxe-column>
         <vxe-column field="description" :title="$t('basic.说明')" sortable></vxe-column>
@@ -64,8 +69,8 @@ import VxeTable from '@/components/table/vxeTable.vue'
 import { setMoment, setMessageTips } from '@/pages/utils'
 import { channelDelete, channelPage } from '@/apis/marketbase'
 import { useRouter } from 'vue-router'
-import mixin from "@/mixin/dictionary.ts";
-const { getDictionary } = mixin.setup();
+import mixin from '@/mixin/dictionary.ts'
+const { getDictionary } = mixin.setup()
 const formState = ref({})
 const addModalRef = ref()
 const vxeTableRef = ref()
@@ -75,7 +80,7 @@ const tableDate = reactive({
   pageNumber: 1,
   pageSize: 10,
   orderBy: null,
-  order: null,
+  order: null
 })
 //弹框基本信息
 onMounted(() => {})
@@ -84,7 +89,7 @@ onMounted(() => {})
 const searchQuery = (formValue) => {
   formState.value = formValue
   init('initial')
-} 
+}
 
 //查询表格数据
 const init = (type) => {
@@ -136,8 +141,8 @@ const addSubmit = () => {
 }
 
 const clickOrder = ({ column, prop, order }) => {
-  tableDate.orderBy = column.field;
-  tableDate.order = column.order;
-  init("initial");
+  tableDate.orderBy = column.field
+  tableDate.order = column.order
+  init('initial')
 }
 </script>

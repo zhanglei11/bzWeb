@@ -29,7 +29,7 @@ const emits = defineEmits()
 const props = defineProps({
   ID: {
     required: true
-  },
+  }
 })
 const DIS_ = ref(false)
 const ID_ = ref(props.ID)
@@ -49,21 +49,21 @@ const resetList = () => {
   LIST_.value = []
 }
 //字典
-const getInit = () => {
-  getmaterialtList().then((res) => {
-    if (res.errorCode == '00000') {
-      let data = res.data
-      if (typeof data !== 'undefined' && typeof data !== 'null' && data) {
-        LIST_.value = data.sort(function (a, b) {
-          let x = a['materialNo']
-          let y = b['materialNo']
-          return x < y ? -1 : x > y ? 1 : 0
-        })
+const getInit = (val) => {
+    getmaterialtList(val).then((res) => {
+      if (res.errorCode == '00000') {
+        let data = res.data
+        if (typeof data !== 'undefined' && typeof data !== 'null' && data) {
+          LIST_.value = data.sort(function (a, b) {
+            let x = a['materialNo']
+            let y = b['materialNo']
+            return x < y ? -1 : x > y ? 1 : 0
+          })
+        }
+      } else {
+        LIST_.value = []
       }
-    } else {
-      LIST_.value = []
-    }
-  })
+    })
 }
 const changeID = (val) => {
   let obj = {
@@ -76,7 +76,7 @@ const changeID = (val) => {
       value: null
     }
   } else {
-    LIST_.value.forEach((it) => {
+    LIST_.value?.forEach((it) => {
       if (it.materialNo == val) {
         obj = {
           label: it.materialName,

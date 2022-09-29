@@ -41,21 +41,21 @@
           :placeholder="getPlaceholder(1)"
         ></a-input>
       </a-form-item>
-      <a-form-item :label="$t('basic.列号')" name="columnNo">
-        <a-input-number
-          style="width: 100%"
-          :min="0"
-          :allowClear="true"
-          v-model:value="modalForm.columnNo"
-          :placeholder="getPlaceholder(1)"
-        ></a-input-number>
-      </a-form-item>
       <a-form-item :label="$t('basic.层号')" name="layerNo">
         <a-input-number
           style="width: 100%"
           :min="0"
           :allowClear="true"
           v-model:value="modalForm.layerNo"
+          :placeholder="getPlaceholder(1)"
+        ></a-input-number>
+      </a-form-item>
+      <a-form-item :label="$t('basic.列号')" name="columnNo">
+        <a-input-number
+          style="width: 100%"
+          :min="0"
+          :allowClear="true"
+          v-model:value="modalForm.columnNo"
           :placeholder="getPlaceholder(1)"
         ></a-input-number>
       </a-form-item>
@@ -255,7 +255,7 @@ const onChange = (val) => {
 }
 //超市改变
 const marketChange = (val) => {
-  markertList.value.forEach((it) => {
+  markertList.value?.forEach((it) => {
     if (it.supermarketNo == val) {
       modalForm.supermarketName = it.supermarketName
       modalForm.baseSupermarketId = it.id
@@ -276,7 +276,7 @@ const getKltList = () =>
   getkltList().then((res) => {
     KltList.value = []
     if (res.errorCode == '00000') {
-      res.data.forEach((it) => {
+      res.data?.forEach((it) => {
         KltList.value.push({ id: it.id, name: it.kltName })
       })
     } else {

@@ -5,6 +5,8 @@ const settingUser = () => import('@/pages/setting/user/index.vue');
 const settingRole = () => import('@/pages/setting/role/index.vue');
 const settingMenu = () => import('@/pages/setting/menu/index.vue');
 const settingDept = () => import('@/pages/setting/dept/index.vue');
+const DictionaryItem = () => import('@/views/DS/dictionary/item/index.vue')
+const Dictionary = () => import('@/views/DS/dictionary/dictionary/index.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '',
@@ -70,7 +72,28 @@ const routes: RouteRecordRaw[] = [
           titleEn: 'Department',
           keepAlive: true
         }
+      },
+      {
+        path: '/DS/dictionary',
+        name: 'Dictionary',
+        component: Dictionary,
+        meta: {
+          title: '字典',
+          titleEn: 'Dictionary',
+          keepAlive: true
+        }
+      },
+      {
+        path: '/DS/dictionary/Item',
+        name: 'Item',
+        component: DictionaryItem,
+        meta: {
+          title: '字典项',
+          titleEn: 'DictionaryItem',
+          keepAlive: false
+        }
       }
+
     ]
   }
 ];

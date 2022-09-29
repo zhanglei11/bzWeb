@@ -7,6 +7,7 @@
     <VxeTable
       ref="vxeTableRef"
       :tableDate="tableDate"
+      :topHeight="400"
       @clickOrder="clickOrder"
       @handlePage="handlePage"
     >

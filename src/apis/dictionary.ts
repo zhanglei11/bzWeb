@@ -26,7 +26,7 @@ export const system_dict_delete = (params: any) => {
  */
 export const system_dict_page = (params: any) => {
   return request({
-    url: `/system/dict/page`,
+    url: '/system/dict/page',
     method: 'GET',
     params: params
   })
@@ -36,7 +36,7 @@ export const system_dict_page = (params: any) => {
  */
 export const system_dict_all_map = (params: any) => {
   return request({
-    url: `/system/dict/all/map`,
+    url: '/system/dict/all/map',
     method: 'GET',
     params: params
   })
@@ -47,7 +47,7 @@ export const system_dict_all_map = (params: any) => {
  */
 export const system_dict_update = (params: any) => {
   return request({
-    url: `/system/dict/update`,
+    url: '/system/dict/update',
     method: 'POST',
     data: params
   })
@@ -58,7 +58,7 @@ export const system_dict_update = (params: any) => {
  */
 export const system_dict_item_add = (params: any) => {
   return request({
-    url: `/system/dict/item/add`,
+    url: '/system/dict/item/add',
     method: 'POST',
     data: params
   })
@@ -80,7 +80,7 @@ export const system_dict_item_delete = (params: any) => {
  */
 export const system_dict_item_getByCode = (params: any) => {
   return request({
-    url: `/system/dict/item/getByCode`,
+    url: '/system/dict/item/getByCode',
     method: 'GET',
     params: params
   })
@@ -90,7 +90,7 @@ export const system_dict_item_getByCode = (params: any) => {
  */
 export const system_dict_item_list = (params: any) => {
   return request({
-    url: `/system/dict/item/list`,
+    url: '/system/dict/item/list',
     method: 'GET',
     params: params
   })
@@ -101,7 +101,7 @@ export const system_dict_item_list = (params: any) => {
  */
 export const system_dict_item_update = (params: any) => {
   return request({
-    url: `/system/dict/item/update`,
+    url: '/system/dict/item/update',
     method: 'POST',
     data: params
   })

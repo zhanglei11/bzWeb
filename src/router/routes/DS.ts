@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 const Layout = () => import('@/layout/index.vue');
-const SupermarketManger = () => import('@/views/DS/Supermarket/SupermarketManger/index.vue') 
+const SupermarketManger = () => import('@/views/DS/Supermarket/SupermarketManger/index.vue')
 const Placing = () => import('@/views/DS/Supermarket/Placing/index.vue')
 const reclaiming = () => import('@/views/DS/Supermarket/reclaiming/index.vue')
 const Tailings = () => import('@/views/DS/Supermarket/Tailings/index.vue')
@@ -10,8 +10,6 @@ const Supermarket = () => import('@/views/DS/basic/supermarket/index.vue')
 const Passageway = () => import('@/views/DS/basic/passageway/index.vue')
 const Container = () => import('@/views/DS/basic/container/index.vue')
 const Material = () => import('@/views/DS/basic/material/index.vue')
-const DictionaryItem = () => import('@/views/DS/dictionary/item/index.vue')
-const Dictionary = () => import('@/views/DS/dictionary/dictionary/index.vue')
 const MaterialmaterialRelationship = () => import('@/views/DS/basic/materialRelationship/index.vue')
 const PassagewayCapacity = () => import('@/views/DS/basic/passagewayCapacity/index.vue')
 const routes: RouteRecordRaw[] = [
@@ -60,7 +58,7 @@ const routes: RouteRecordRaw[] = [
           titleEn: 'Tailings storage',
           keepAlive: true
         }
-      },
+      }
 
     ]
   },
@@ -88,7 +86,7 @@ const routes: RouteRecordRaw[] = [
           titleEn: 'HistoryRecord',
           keepAlive: true
         }
-      },
+      }
     ]
   },
   {
@@ -156,33 +154,6 @@ const routes: RouteRecordRaw[] = [
           keepAlive: true
         }
       }
-    ]
-  },
-  {
-    path: '',
-    component: Layout,
-    meta: { title: '字典管理' },
-    children: [
-      {
-        path: '/DS/dictionary',
-        name: 'Dictionary',
-        component: Dictionary,
-        meta: {
-          title: '字典',
-          titleEn: 'Dictionary',
-          keepAlive: true
-        }
-      },
-      {
-        path: '/DS/dictionary/Item',
-        name: 'Item',
-        component: DictionaryItem,
-        meta: {
-          title: '字典项',
-          titleEn: 'DictionaryItem',
-          keepAlive: false
-        }
-      },
     ]
   }
 ]

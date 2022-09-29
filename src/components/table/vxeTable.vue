@@ -7,7 +7,7 @@
       <slot name="rightButton"></slot>
     </template>
   </vxe-toolbar>
-  <a-col style="height: calc(100vh - 360px)">
+  <a-col :style="height">
     <vxe-table
       round
       :id="tableId"
@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 // 公共页面不要修改 如果达不到你的要求 找zhangle 让他来改
 import { VxeTableInstance, VxeToolbarInstance } from "vxe-table";
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref, onMounted,computed } from "vue";
 const pageSizesList = ref([10, 20, 50, 100]);
 const layouts = ref(["PrevPage", "JumpNumber", "NextPage", "FullJump", "Sizes", "Total"]);
 const xToolbarRole = ref({} as VxeToolbarInstance);
@@ -57,7 +57,7 @@ const props = defineProps({
   topHeight: {
     required: false,
     default: () => {
-      return "360px";
+      return 360;
     },
   },
   tableDate: {
@@ -66,9 +66,6 @@ const props = defineProps({
 });
 const tableList = ref([]); //数据
 const tableLoading = ref(false);
-const totalSize = ref(0); //总数
-const pageNumber = ref(1); //当前页
-const pageSize = ref(10); //每页数
 const tableId = ref(props.id);
 const topHeight = ref(props.topHeight);
 //绑定vxe-table
@@ -77,6 +74,14 @@ const changevisible = () => {
   const $toolbar = xToolbarRole.value;
   $table.connect($toolbar);
 };
+
+//设置table高度
+const height = computed(() => {
+  return {
+    height: `calc(100vh - ${topHeight.value}px)`
+  }
+})
+
 
 onMounted(() => {
   changevisible();
@@ -87,23 +92,25 @@ const clickOrder = ({ column, prop, order }) => {
   emits("clickOrder", { column, prop, order });
 };
 
-//分页查询
-const handlePageTable = ({ currentPage, pageSize }) => {
-  emits("handlePage", { currentPage, pageSize });
-};
-
-const tableType = ref(1)
+const tableType = ref(1);
+const totalSize = ref(0); //总数
+const pageNumber = ref(1); //当前页
+const pageSize = ref(10); //每页数
 //处理数据
-const setTableDate = (res,type=1) => {
-  if(type == 1){
+const setTableDate = (res, type = 1) => {
+  if (type == 1) {
     tableList.value = res.data?.items ?? [];
     pageNumber.value = res.data?.pageNumber ?? 1;
     pageSize.value = res.data?.pageSize ?? 10;
     totalSize.value = res.data?.totalSize ?? 0;
-  }else{
-    tableList.value = res.data?? [];
+  } else {
+    tableList.value = res.data ?? [];
   }
-  tableType.value = type
+  tableType.value = type;
+};
+//分页查询
+const handlePageTable = ({ currentPage, pageSize }) => {
+  emits("handlePage", { currentPage, pageSize });
 };
 
 defineExpose({

@@ -230,8 +230,8 @@ export const handleTree = (
 export const setMessageTips = async (res: any, flage = true) => {
   const duration = 1;
 
-  if (res.errorCode == '00000' ) {
-    if(flage) {
+  if (res.errorCode == '00000') {
+    if (flage) {
       message.success(getMessage(res), duration)
     }
   } else {
@@ -241,6 +241,7 @@ export const setMessageTips = async (res: any, flage = true) => {
 const getMessage = (res: any) => {
   const { t } = i18n.global;
   const list = {
+    'ERRORDATACODE': t('base.数据格式错误'),
     '00000': t('base.操作成功'),
     'A0001': t('base.用户端错误'),
     'A0101': t('base.用户未同意隐私协议'),
@@ -255,7 +256,7 @@ const getMessage = (res: any) => {
     'A3002': t('base.数据被引用'),
     'A3003': t('base.物料类型等级已存在'),
     'A3004': t('base.层列坐标已存在'),
-    'A3005': t('base.没有可添加的物料'),
+    'A3005': t('base.没有可添加的物料')
   };
   let name = list[res.errorCode] == undefined ? res.errorMessage : list[res.errorCode];
 
@@ -266,16 +267,21 @@ const getMessage = (res: any) => {
  * @param {*} fun 传入的函数
  * @param {*} arrAgu 传入的函数的参数
  */
-export const stopUpDownFunList  = (awaitTime=2000) => {
+
+export const stopUpDownFunList = (awaitTime = 2000) => {
   let startTimer = 0;
   //节流  一段时间只能执行一次 使用时间戳控制
-  const retrunStopUpDown =  (fun:any, ...arrAgu:any) =>{
-      if (typeof fun !== 'function') return
-     let endTimer = new Date().getTime()
-      if (endTimer - startTimer > awaitTime) {
-          fun( ...arrAgu)
-          startTimer = new Date().getTime()
-      }
+  const retrunStopUpDown = (fun: any, ...arrAgu: any) => {
+    if (typeof fun !== 'function') {
+      return
+    }
+    let endTimer = new Date().getTime()
+
+    if (endTimer - startTimer > awaitTime) {
+      fun(...arrAgu)
+      startTimer = new Date().getTime()
+    }
   }
+
   return retrunStopUpDown
 }

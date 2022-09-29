@@ -74,7 +74,7 @@ const getBliList = () =>
   getblisterList().then((res) => {
     List.value = []
     if (res.errorCode == '00000') {
-      res.data.forEach((it) => {
+      res.data?.forEach((it) => {
         List.value.push({ id: it.blisterNo, name: it.blisterName })
       })
     } else {
@@ -86,7 +86,7 @@ const getKltList = () =>
   getkltList().then((res) => {
     List.value = []
     if (res.errorCode == '00000') {
-      res.data.forEach((it) => {
+      res.data?.forEach((it) => {
         List.value.push({ id: it.kltNo, name: it.kltName })
       })
     } else {

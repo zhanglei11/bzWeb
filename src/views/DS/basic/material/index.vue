@@ -82,8 +82,6 @@ const tableDate = reactive({
 });
 //弹框基本信息
 onMounted(() => {});
-
-
 //将子组件获取到的对象返回
 const searchQuery = (formValue) => {
   formState.value = formValue;

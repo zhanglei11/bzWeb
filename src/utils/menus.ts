@@ -2,34 +2,7 @@ import setting from '@/pages/menu/setting';
 import welcome from '@/pages/menu/welcome';
 export default [
   welcome,
-  {
-    path: '',
-    title: '基础设置',
-    titleEn: 'base setting',
-    icon: 'HomeOutlined',
-    children: [
-      {
-        path: '/DS/basic/supermarket',
-        titleEn: 'supermarket',
-        title: '超市'
-      },
-      {
-        path: '/DS/basic/passageway',
-        titleEn: 'passageway',
-        title: '通道'
-      },
-      {
-        path: '/DS/basic/container',
-        titleEn: 'container',
-        title: '容器'
-      },
-      {
-        path: '/DS/basic/material',
-        titleEn: 'material',
-        title: '物料'
-      },
-    ]
-  },
+
   {
     path: '',
     title: '超市管理',
@@ -55,7 +28,7 @@ export default [
         path: '/DS/Supermarket/Tailings',
         titleEn: 'Tailings',
         title: '尾料存入'
-      },
+      }
     ]
   },
   {
@@ -73,15 +46,36 @@ export default [
         path: '/DS/Inventory/HistoryRecord',
         titleEn: 'HistoryRecord',
         title: '历史记录'
-      },
+      }
     ]
   },
   {
-    path: '/DS/dictionary',
-    title: '字典',
-    titleEn: 'dictionary',
+    path: '',
+    title: '基础设置',
+    titleEn: 'base setting',
     icon: 'HomeOutlined',
-    children: []
+    children: [
+      {
+        path: '/DS/basic/supermarket',
+        titleEn: 'supermarket',
+        title: '超市'
+      },
+      {
+        path: '/DS/basic/passageway',
+        titleEn: 'passageway',
+        title: '通道'
+      },
+      {
+        path: '/DS/basic/container',
+        titleEn: 'container',
+        title: '容器'
+      },
+      {
+        path: '/DS/basic/material',
+        titleEn: 'material',
+        title: '物料'
+      }
+    ]
   },
   setting
 ]

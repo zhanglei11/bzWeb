@@ -16,7 +16,7 @@ export default {
   状态: 'Status',
   检测类别:'Type',
   设备昵称: 'Device nickname',
-  
+
   物料名称: 'Material name',
   物料编号: 'Material No',
   超市名称: 'Supermarket name',
@@ -35,22 +35,22 @@ export default {
   尾料通道: 'Tailings passage',
   电子标签IN: 'Electronic label IN',
   电子标签OUT: 'Electronic label OUT',
-  电子标签INOUT: "Electronic IN/OUT",
+  电子标签INOUT: 'Electronic IN/OUT',
   容器名称: 'Container name',
   容器编号: 'Container No',
   容量: 'Capacity',
   容量单位: 'Capacity unit',
   等级: 'Level',
   物料类型: 'Material Type',
-  库存类型:"Inventory Type",
-  记录类型:"Record Type",
+  库存类型:'Inventory Type',
+  记录类型:'Record Type',
   物料号: 'Material No',
   容器: 'Container',
   超市: 'Supermarket',
   通道: 'Passageway',
-  添加物料关系:"Add Material Relationship",
-  编号:"No",
-  时间:"Time",
+  添加物料关系:'Add Material Relationship',
+  编号:'No',
+  时间:'Time'
 };
 
 

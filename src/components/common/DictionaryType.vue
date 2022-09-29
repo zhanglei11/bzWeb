@@ -79,7 +79,7 @@ const changeID = (val) => {
       value: null
     }
   } else {
-    LIST_.value.forEach((it) => {
+    LIST_.value?.forEach((it) => {
       if (it.value == val) {
         obj = {
           label: it.name,

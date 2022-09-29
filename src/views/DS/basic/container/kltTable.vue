@@ -83,7 +83,7 @@ const init = async (type) => {
     .then((res) => {
       if (res.errorCode == '00000') {
         res?.data?.items?.forEach((item) => {
-          data.data.forEach((ele) => {
+          data.data?.forEach((ele) => {
             if (item.baseBlisterId == ele.id) item.unit = ele.blisterName
           })
         })

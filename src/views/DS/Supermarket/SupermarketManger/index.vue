@@ -4,10 +4,14 @@
       <a-row :gutter="16">
         <a-col :span="12" v-for="item in marketList" :key="item.id">
           <a-card
+            style="cursor:pointer"
+            @click="backGo(item)"
             :bordered="false"
-            :style="{ height: '20vh', backgroundColor: item.color,borderRadius:'5px' }"
+            :style="{ height: '20vh', backgroundColor: item.color, borderRadius: '8px' }"
           >
-            <p style="text-align: center;font-size:18px;line-height:15vh">{{ item.name }}</p>
+            <p style="text-align: center; font-size: 20px; line-height: 15vh; font-weight: bold">
+              {{ item.name }}
+            </p>
           </a-card>
         </a-col>
       </a-row>
@@ -15,6 +19,7 @@
   </div>
 </template>
 <script setup>
+import { useRouter } from 'vue-router'
 import { setRules, getPlaceholder } from '@/pages/utils'
 import { reactive, ref, onMounted } from 'vue'
 const formState = reactive({ barCode: '' })
@@ -22,11 +27,12 @@ const formState = reactive({ barCode: '' })
 const formRules = reactive({
   barCode: [setRules(1)]
 })
+const router = useRouter()
 const marketList = ref([
   {
     name: '放料',
     id: '1',
-    color: '#000099'
+    color: '#FF8800'
   },
   {
     name: '取料',
@@ -44,6 +50,24 @@ const marketList = ref([
     color: '#99CC32'
   }
 ])
+const backGo = (row) => {
+  switch (row.id) {
+    case '1':
+      router.push('/DS/Supermarket/Placing')
+      break
+    case '2':
+      router.push('/DS/Supermarket/reclaiming')
+      break
+    case '3':
+      router.push('/DS/Supermarket/Tailings')
+      break
+    case '4':
+      router.push('/DS/Inventory/HistoryRecord')
+      break
+    default:
+      break
+  }
+}
 </script>
 <style lang="less" scoped>
 .cardForm {

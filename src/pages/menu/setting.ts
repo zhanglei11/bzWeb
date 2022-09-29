@@ -27,6 +27,12 @@ export default {
       title: '部门管理',
       titleEn: 'department',
       children: []
+    },
+    {
+      path: '/DS/dictionary',
+      title: '字典',
+      titleEn: 'dictionary',
+      children: []
     }
   ]
 };

@@ -83,7 +83,7 @@ const init = (type) => {
   blisterPage(params)
     .then((res) => {
       if (res.errorCode == '00000') {
-        res.data.items.forEach((item) => {
+        res.data.items?.forEach((item) => {
           item.unit = '个'
         })
         vxeTableRef.value.setTableDate(res)
